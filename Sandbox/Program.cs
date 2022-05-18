@@ -1,5 +1,6 @@
 ﻿using System;
 using MathEngine;
+using MathEngine.Extensions;
 
 namespace Sandbox
 {
@@ -7,12 +8,15 @@ namespace Sandbox
     {
         private static void Main(string[] args)
         {
-            Log.AddLogger(new ConsoleLogger());
-            Log.AddLogger(new FileLogger("log.txt"));
-            Log.Trace("Starting sandbox.");
+            Eagle.InitDefault();
+            Eagle.EnableIntermediate = true;
+            Eagle.EnableLatex = true;
 
-            Log.Info(IExpression.Parse("132489+2437289*234+1234/654").Reduce().ToText());
-            Log.Info(IExpression.Parse("132489+2437289*234+1234/654").ToLatex());
+            IExpression expression = IExpression.Parse("132489+2437289*234+1234/654");
+            Log.Info(expression.ToString().CleanExpressionString());
+            Output.Result(expression, expression.Reduce());
+            
+            Console.ReadKey();
         }
     }
 }

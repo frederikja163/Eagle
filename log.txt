@@ -1,1 +1,3 @@
-[Info 2022-05-17 10:58:44:63522 Program.cs#15] 132489 + 2437289 \cdot 234 + \frac{1234}{654}
+[Info 2022-05-18 10.26.04.38898 Program.cs#15] 132489 +  2437289 * 234 + 1234 / 654
+ion.
+e.Operators.Scalar * MathEngine.Operators.Scalar  + MathEngine.Operators.Scalar / MathEngine.Operators.Scalar  

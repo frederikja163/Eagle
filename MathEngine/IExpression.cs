@@ -7,9 +7,6 @@ namespace MathEngine
     {
         IExpression Reduce();
 
-        public string ToText();
-        public string ToLatex();
-
         public static IExpression Parse(string expression)
         {
             {

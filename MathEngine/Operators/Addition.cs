@@ -15,25 +15,29 @@ namespace MathEngine.Operators
 
         public IExpression Reduce()
         {
-            var left = Left.Reduce();
-            var right = Right.Reduce();
-
+            IExpression left = Left.Reduce();
+            IExpression right = Right.Reduce();
+            Addition addition = new Addition(left, right);
+            
             if (left is Scalar lValue && right is Scalar rValue)
             {
-                return lValue + rValue;
+                Scalar scalar = lValue + rValue;
+                Output.Intermediate(addition, scalar);
+                return scalar;
             }
 
-            return new Addition(left, right);
+            if (left != Left || right != Right)
+            {
+                Output.Intermediate(this, addition);
+                return addition;
+            }
+            
+            return this;
         }
 
-        public string ToText()
+        public override string ToString()
         {
-            return $" {Left.ToText()} + {Right.ToText()} ".CleanExpressionString();
-        }
-
-        public string ToLatex()
-        {
-            return $" {Left.ToLatex()} + {Right.ToLatex()} ".CleanExpressionString();
+            return $" {Left.ToString()} + {Right.ToString()} ";
         }
     }
 }

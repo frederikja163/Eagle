@@ -16,8 +16,9 @@ namespace MathEngine.Operators
 
         public IExpression Reduce()
         {
-            var left = Left.Reduce();
-            var right = Right.Reduce();
+            IExpression left = Left.Reduce();
+            IExpression right = Right.Reduce();
+            Division division = new Division(left, right);
 
             if (right is Scalar val && val.Value == 0)
             {
@@ -26,20 +27,25 @@ namespace MathEngine.Operators
 
             if (left is Scalar lValue && right is Scalar rValue)
             {
-                return lValue / rValue;
+                Scalar scalar = lValue / rValue;
+                Output.Intermediate(division, scalar);
+                return scalar;
+            }
+            
+            if (left != Left || right != Right)
+            {
+                Output.Intermediate(this, division);
+                return division;
             }
 
-            return new Division(left, right);
+            return this;
         }
 
-        public string ToText()
+        public override string ToString()
         {
-            return $" {Left.ToText()} / {Right.ToText()} ".CleanExpressionString();
-        }
-
-        public string ToLatex()
-        {
-            return $" \\frac{{{Left.ToLatex()}}}{{{Right.ToLatex()}}} ".CleanExpressionString();
+            return Eagle.EnableLatex ?
+                $" \\frac{{{Left.ToString()}}}{{{Right.ToString()}}} " :
+                $" {Left.ToString()} / {Right.ToString()} ".CleanExpressionString();
         }
     }
 }

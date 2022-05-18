@@ -35,12 +35,7 @@ namespace MathEngine.Operators
             return new Scalar(left.Value / right.Value);
         }
 
-        public string ToText()
-        {
-            return Value.ToString();
-        }
-
-        public string ToLatex()
+        public override string ToString()
         {
             return Value.ToString();
         }
