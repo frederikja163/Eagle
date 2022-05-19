@@ -12,7 +12,7 @@ namespace Sandbox
             Eagle.EnableIntermediate = true;
             Eagle.EnableLatex = true;
 
-            IExpression expression = IExpression.Parse("132489+2437289*234+1234/654");
+            IExpression expression = IExpression.Parse("-1+2+3+4-5");
             Log.Info(expression.ToString().CleanExpressionString());
             Output.Result(expression, expression.Reduce());
             

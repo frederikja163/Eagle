@@ -3,7 +3,7 @@ using MathEngine.Extensions;
 
 namespace MathEngine.Operators
 {
-    public class Division : IBinaryOperation
+    public class Division : IExpression
     {
         public IExpression Left { get; }
         public IExpression Right { get; }

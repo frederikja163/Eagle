@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace MathEngine.Operators
 {
     public sealed class Scalar: IExpression
@@ -38,6 +40,20 @@ namespace MathEngine.Operators
         public override string ToString()
         {
             return Value.ToString();
+        }
+
+
+        [ExpressionParser(1)]
+        public static bool TryParse(string str, [NotNullWhen(true)] out IExpression? expression)
+        {
+            if (long.TryParse(str, out long value))
+            {
+                expression = new Scalar(value);
+                return true;
+            }
+
+            expression = null;
+            return false;
         }
     }
 }

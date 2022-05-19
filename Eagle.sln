@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathEngine", "MathEngine\Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{DDD021E0-017B-4A31-ACCD-ECC5ED9F75B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathEngine.Test", "MathEngine.Test\MathEngine.Test.csproj", "{D32BA49D-E549-44FE-9C14-5F1064A97A59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{DDD021E0-017B-4A31-ACCD-ECC5ED9F75B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDD021E0-017B-4A31-ACCD-ECC5ED9F75B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDD021E0-017B-4A31-ACCD-ECC5ED9F75B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D32BA49D-E549-44FE-9C14-5F1064A97A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32BA49D-E549-44FE-9C14-5F1064A97A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32BA49D-E549-44FE-9C14-5F1064A97A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32BA49D-E549-44FE-9C14-5F1064A97A59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

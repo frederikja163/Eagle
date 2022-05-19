@@ -2,7 +2,7 @@ using MathEngine.Extensions;
 
 namespace MathEngine.Operators
 {
-    public sealed class Multiplication : IBinaryOperation
+    public sealed class Multiplication : IExpression
     {
         public IExpression Left { get; }
         public IExpression Right { get; }
